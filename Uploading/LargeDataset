@@ -1,0 +1,6 @@
+Uploading large dataset
+
+Copyright (c) 2018 Maptec admin
+
+Shapefiles are very poor at holding and transporting large quatities of spatial data. Preference should be to utilize PostgreSQL/PostGIS database.
+
