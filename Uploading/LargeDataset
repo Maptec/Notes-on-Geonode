@@ -1,7 +1,27 @@
-Uploading large dataset
+Uploading dataset
 
 Copyright (c) 2018 Maptec admin
 
-Shapefiles are very poor at holding and transporting large quantities of spatial data. 
+The most common method of getting spatial data into Geonode is to upload shapefiles. 
+The drawback is that shapefiles are very poor at holding and transporting large quantities of spatial data and tabular data has many restrictions. 
 Preference should be to utilize PostgreSQL/PostGIS database along with QGIS to upload large datasets.
 
+My preferred methods and sequence:   [consider generalizing data first, try http://mapshaper.org/]
+  [Loading the Style first simplifies many things later]
+1. Load data in QGIS 3.0
+2. Style data and save as .sld style file.
+3. Login to geoserver [your_geonode_ip]/geoserver
+4. Go to Styles --> Add a new style
+5. Give new style a name, preferrable the same exact name as the data you will upload later
+6. Click on Choose File
+7. Navigate to your saved style from step #2, click Open
+8. Click on Upload ...
+9. Recheck name from step #5, uploading may have overwritten it
+10. Click Validate, correct any errors
+11. Click Submit
+12. In QGIS go to Processing Toolbox, search for Import to PostGIS
+  [the following steps require you to have a PostGIS database already configured and running]
+13. In the Import to PostGIS select preconfigured database
+14. Click Run in Background to upload data 
+  [upload time can be many hours for large datasets]
+  
